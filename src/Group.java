@@ -7,7 +7,7 @@ public class Group {
 
    private int idGroup  ;
    public  String nameGroup  ;
-   Student student[]  ;
+   Student[] student  ;
 
 
     public Group(int idGroup, String nameGroup, Student[] student) {
@@ -17,9 +17,9 @@ public class Group {
       countForGroup++;
    }
 
-   public Student[] getStudent() {
-      return student;
-   }
+    public Student[] getStudent() {
+        return student;
+    }
 
    public void setStudent(Student[] student) {
       this.student = student;
@@ -46,18 +46,20 @@ public class Group {
    }
 
    public  void  add (Student name){
-       int count = 0 ;
+
 
       for (int i = 0; i < student.length; i++) {
-         if(student[i]!=null){
+         if(student[i]==null){
             student[i]=name ;
-            count++;
+
              System.out.println("студент "+student[i].getNamesStudent()+" добавлен !");
-             if(count==1){return;}
+
          }else {
             System.out.println("мест в группе нету !");
+            return;
          }
       }
+
 
    }
 
@@ -67,10 +69,14 @@ public class Group {
            if(group.equals( groups[i].getNameGroup())){
                System.out.println("название группы : "+groups[i].getNameGroup());
                for (int j = 0; j < groups[i].getStudent().length; j++) {
-                   System.out.println(groups[i].getStudent()[j].getNamesStudent());
-               }
-               System.out.println("число студентов этого группы : "+groups[i].getStudent().length);
-           }
+                   if(groups[i].getStudent()[j]!=null) {
+                       System.out.println(groups[i].getStudent()[j].getNamesStudent());
+
+
+
+           }}}
+           System.out.println("число студентов этого группы : "+groups[i].getStudent().length);
+           return;
        }
 
    }
